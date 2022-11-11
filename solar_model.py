@@ -38,7 +38,7 @@ def move_space_object(body, dt):
     body.Vx += ax * dt
     body.x += body.Vx * dt
     ay = body.Fy/body.m 
-    body.Vy = ay * dt
+    body.Vy += ay * dt
     body.y += body.Vy * dt
 
 

@@ -27,7 +27,6 @@ def read_space_objects_data_from_file(input_filename):
                 planet = Planet()
                 parse_planet_parameters(line, planet)
                 objects.append(planet)
-                print("Unknown space object")
 
     return objects
 
@@ -52,8 +51,8 @@ def parse_star_parameters(line, star):
     star.m = float(l[3])
     star.x = float(l[4])
     star.y = float(l[5])
-    star.vx = float(l[6])
-    star.vy = float(l[7])
+    star.Vx = float(l[6])
+    star.Vy = float(l[7])
 
 def parse_planet_parameters(line, planet):
     """Считывает данные о планете из строки.
@@ -76,8 +75,8 @@ def parse_planet_parameters(line, planet):
     planet.m = float(l[3])
     planet.x = float(l[4])
     planet.y = float(l[5])
-    planet.vx = float(l[6])
-    planet.vy = float(l[7])
+    planet.Vx = float(l[6])
+    planet.Vy = float(l[7])
 
 
 def write_space_objects_data_to_file(output_filename, space_objects):
