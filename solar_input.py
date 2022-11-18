@@ -78,7 +78,6 @@ def parse_planet_parameters(line, planet):
     planet.Vx = float(l[6])
     planet.Vy = float(l[7])
 
-
 def write_space_objects_data_to_file(output_filename, space_objects):
     """Сохраняет данные о космических объектах в файл.
     Строки должны иметь следующий формат:
@@ -92,8 +91,8 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     """
     with open(output_filename, 'w') as out_file:
         for obj in space_objects:
-            print(out_file, "%s %d %s %f" % ('1', 2, '3', 4.5))
-            # FIXME: should store real values
+            data = list(map(str, [obj.type, obj.r, obj.color, obj.m, obj.x, obj.y, obj.Vx, obj.Vy]))
+            out_file.writelines(' '.join(data) + '\n')
 
 # FIXME: хорошо бы ещё сделать функцию, сохранающую статистику в заданный файл...
 
