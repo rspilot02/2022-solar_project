@@ -9,6 +9,7 @@ from solar_input import *
 from solar_graphs import *
 with open('stats.txt', 'w') as f:
     f.truncate()
+live = 0
 
 perform_execution = False
 """Флаг цикличности выполнения расчёта"""
@@ -38,11 +39,16 @@ def execution():
     global physical_time
     global displayed_time
     global flag
+    global live
     recalculate_space_objects_positions(space_objects, time_step.get())
     for body in space_objects:
         update_object_position(space, body)
     physical_time += time_step.get()
-    stat(space_objects, physical_time)
+    if live == 0:
+        stat(space_objects, physical_time)
+        live += 10
+    else:
+        live -= 1
     graphs()
     displayed_time.set("%.1f" % physical_time + " seconds gone")
 
