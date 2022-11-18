@@ -44,12 +44,12 @@ def execution():
     for body in space_objects:
         update_object_position(space, body)
     physical_time += time_step.get()
-    if live == 0:
+    if live % 10 == 0:
         stat(space_objects, physical_time)
-        live += 10
-    else:
-        live -= 1
-    graphs()
+        if live == 0:
+            graphs()
+            live += 100
+    live -= 1
     displayed_time.set("%.1f" % physical_time + " seconds gone")
 
     if perform_execution:
