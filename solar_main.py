@@ -34,10 +34,12 @@ def execution():
     """
     global physical_time
     global displayed_time
+    global flag
     recalculate_space_objects_positions(space_objects, time_step.get())
     for body in space_objects:
         update_object_position(space, body)
     physical_time += time_step.get()
+    stat(space_objects, physical_time)
     displayed_time.set("%.1f" % physical_time + " seconds gone")
 
     if perform_execution:
@@ -147,6 +149,7 @@ def main():
 
     root.mainloop()
     print('Modelling finished!')
+
 
 if __name__ == "__main__":
     main()

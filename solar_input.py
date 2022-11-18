@@ -94,6 +94,12 @@ def write_space_objects_data_to_file(output_filename, space_objects):
             data = list(map(str, [obj.type, obj.r, obj.color, obj.m, obj.x, obj.y, obj.Vx, obj.Vy]))
             out_file.writelines(' '.join(data) + '\n')
 
+def stat(space_objects, time):
+    with open('stats.txt', 'a') as out_file:
+        obj = space_objects[1]
+        data = list(map(str, [(obj.x**2 + obj.y**2)**0.5, (obj.Vx**2 + obj.Vy**2)**0.5, time]))
+        out_file.writelines(' '.join(data) + '\n')
+
 # FIXME: хорошо бы ещё сделать функцию, сохранающую статистику в заданный файл...
 
 if __name__ == "__main__":
