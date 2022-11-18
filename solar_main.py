@@ -41,7 +41,7 @@ def execution():
         update_object_position(space, body)
     physical_time += time_step.get()
     stat(space_objects, physical_time)
-    #graphs()
+    graphs()
     displayed_time.set("%.1f" % physical_time + " seconds gone")
 
     if perform_execution:

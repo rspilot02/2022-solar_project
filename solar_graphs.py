@@ -8,8 +8,8 @@ def graphs():
         a = list(map(lambda x: x.rstrip().split(), f.readlines()))
     dat = a[-1]
     pylab.subplot(2, 1, 1)
-    pylab.scatter(np.array(float(dat[0])), np.array(float(dat[-1])), color='black')
+    pylab.scatter(np.array(float(dat[-1])), np.array(float(dat[0])), color='black')
     
     pylab.subplot(2, 1, 2)
-    pylab.scatter(np.array(float(dat[1])), np.array(float(dat[-1])), color='black')
+    pylab.scatter(np.array(float(dat[-1])), np.array(float(dat[1])), color='black')
     plt.show()
