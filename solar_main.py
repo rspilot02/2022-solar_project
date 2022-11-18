@@ -7,6 +7,8 @@ from solar_vis import *
 from solar_model import *
 from solar_input import *
 from solar_graphs import *
+with open('stats.txt', 'w') as f:
+    f.truncate()
 
 perform_execution = False
 """Флаг цикличности выполнения расчёта"""
